@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BancaBasica.Models.Cuenta>;
+
+@{
+    ViewData["Title"] = "Administracion de Cuentas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Cuentas</h3>
+        </div>
+
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block" asp-action="Create"
+               asp-controller="Cuentas">Ingresar Nueva Cuenta</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.Id_Cuenta)</td>
+                        <td>@Html.DisplayNameFor(m => m.Id_Cliente)</td>
+                        <td>@Html.DisplayNameFor(m => m.Saldo)</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id_Cuenta</td>
+                            <td>@item.Id_Cliente</td>
+                            <td>@item.Saldo</td>
+                            <td>
+                                <a class="btn btn-warning" asp-controller="Cuentas" asp-action="Edit"
+                                   asp-route-id="@item.Id_Cuenta">Editar</a>
+
+                                <a class="btn btn-danger" asp-controller="Cuentas" asp-action="Delete"
+                                   asp-route-id="@item.Id_Cuenta">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="lead">No existen registros</p>
+        }
+    </div>
+
+</div>
