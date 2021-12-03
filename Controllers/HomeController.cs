@@ -1,4 +1,5 @@
 ﻿using BancaBasica.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,6 +21,7 @@ namespace BancaBasica.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.sessionv = HttpContext.Session.GetString("logged_rol");
             return View();
         }
 
