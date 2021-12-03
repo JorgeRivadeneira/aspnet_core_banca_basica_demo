@@ -50,7 +50,7 @@ namespace BancaBasica.Controllers
         public IActionResult Buscar(int Id_Cliente, DateTime FechaIni, DateTime FechaFin)
         {
 
-            return Redirect("~/EstadoCuentas/Reporte?Id_Cliente=" + Id_Cliente.ToString());
+            return Redirect("~/EstadoCuentas/Reporte?Id_Cliente=" + Id_Cliente.ToString() );
         }
     }
 }
