@@ -9,6 +9,11 @@ Toda la Data se encuentra creada con SQL Server Express, y el archivo del SQuema
 en éste mismo directorio en el archivo:
 -	SQUEMA_BANCABASICA.sql
 
+-	Para el manejo de cáclculos cuando se hace un movimiento de débito o crédito,
+	se creó un trigger (insert, update) sobre la tabla de movimeintos para calcular
+	los saldos y que no permita hacer transacciones con saldo negativo, para ello se
+	uso transaccionalidad en dicho trigger.
+
 Los objetos (Tablas) de la base de datos estan creados con Entity Framework (Code Fisrt).
 
 CADENA CONEXION BDD:
