@@ -36,10 +36,14 @@
                             <a class="nav-link text-dark" asp-area=""
                                asp-controller="Movimientos" asp-action="Index">Movimientos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area=""
-                               asp-controller="EstadoCuentas" asp-action="Index">Estado Cuenta</a>
-                        </li>
+                        @if (ViewBag.sessionv == "ROLE_ADMIN")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area=""
+                                   asp-controller="EstadoCuentas" asp-action="Index">Estado Cuenta</a>
+                            </li>
+                        }
+
 
                         <li class="nav-item">
                         </li>

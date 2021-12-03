@@ -20,6 +20,7 @@ namespace BancaBasica.Controllers
 
         public IActionResult Index()
         {
+
             ViewBag.Clientes = _context.cliente.ToList();
             /*IEnumerable<Cuenta> listaCuentas = _context.cuenta;
             return View(listaCuentas);*/
